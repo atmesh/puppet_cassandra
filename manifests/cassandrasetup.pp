@@ -24,9 +24,9 @@ class puppet_cassandra::cassandrasetup {
     creates      => '/usrdata/apps/dsc-cassandra-3.0.9/',
     notify       => File['/usrdata/apps/cassandra/'],
   } ->
-  package { 'java-1.8.0-openjdk':
+  package { 'java':
     ensure   => present,
-    provider => yum,
+    provider => apt,
   }
 
   file { '/usrdata/apps/cassandra/':
