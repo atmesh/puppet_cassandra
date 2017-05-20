@@ -19,7 +19,7 @@ class puppet_cassandra::configuration (
     mode    => '0755',
     content => template('puppet_cassandra/cassandra.erb')
   } ->
-  exec { 'chkconfig cassandra on': provider => shell, }
+  exec { 'update-rc.d cassandra defaults': provider => shell, }
 
   exec { 'service cassandra start':
     cwd      => '/usrdata/apps/cassandra/bin',
